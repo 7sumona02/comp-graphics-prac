@@ -16,7 +16,6 @@ void bresenham(int x1, int y1, int x2, int y2){
                 putpixel(xi, yi, WHITE);
                 dp = dp + (2*dy);
                 xi += 1;
-                delay(100);
             }
         else if(dp>=0)
             {
@@ -24,7 +23,6 @@ void bresenham(int x1, int y1, int x2, int y2){
                 dp = dp + (2*dy) - (2*dx);
                 xi += 1;
                 yi += 1;
-                delay(100);
             }
     }
 }

@@ -67,6 +67,29 @@ int main(){
     cout<<op[0][0]<<op[0][1]<<op[0][2]<<op[0][3]<<endl;
     cout<<op[1][0]<<op[1][1]<<op[1][2]<<op[1][3]<<endl;
     initgraph(&gd,&gm,NULL);
+    outtextxy(100,100,"Before Clipping");
+    rectangle(X1,Y1,X2,Y2);
+    line(x1,y1,x2,y2);
+    getch();
+    closegraph();
+    cleardevice();
+    float m = (y2-y1)/(x2-x1);
+
+    if(!(op[0][0]==0 && op[0][1]==0 op[0][2]==0 && op[0][3]==0 && op[1][0]==0 && op[1][1]==0 op[1][2]==0 && op[1][3]==0)){
+        if(((op[0][0] && op[1][0])==0) && ((op[0][1] && op[1][1])==0) && ((op[0][2] && op[1][2])==0) && ((op[0][3] && op[1][3])==0)){
+            if(op[0][1]==1){
+                x1 = x1 + (Y1-y1)/m;
+            }
+            if(op[1][1]==1){
+                x2 = x2 + (Y1-y2)/m;
+            }
+        }
+        else{
+            x1=y1=x2=y2=0;
+        }
+    }
+    initgraph(&gd,&gm,NULL);
+    outtextxy(100,100,"After Clipping");
     rectangle(X1,Y1,X2,Y2);
     line(x1,y1,x2,y2);
     getch();
